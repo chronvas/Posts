@@ -1,6 +1,6 @@
 package com.chronvas.btest.utils.scheduler;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import io.reactivex.Scheduler;
 

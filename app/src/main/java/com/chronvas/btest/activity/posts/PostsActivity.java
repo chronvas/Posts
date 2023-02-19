@@ -3,11 +3,11 @@ package com.chronvas.btest.activity.posts;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.chronvas.btest.R;
@@ -34,7 +34,6 @@ public class PostsActivity extends AppCompatActivity implements IPostsActivityCo
     RecyclerView recyclerView;
 
     private DividerItemDecoration dividerItemDecoration;
-    private LinearLayoutManager linearLayoutManager;
     private PostsAdapter postsAdapter;
     private PostsVieModel postsViewModel;
 
@@ -60,9 +59,8 @@ public class PostsActivity extends AppCompatActivity implements IPostsActivityCo
         swipeRefreshLayout.setOnRefreshListener(() -> presenter.refresh());
         postsAdapter = new PostsAdapter(this);
         recyclerView.setAdapter(postsAdapter);
-        linearLayoutManager = new LinearLayoutManager(this);
         dividerItemDecoration =
-                new DividerItemDecoration(recyclerView.getContext(), linearLayoutManager.getOrientation());
+                new DividerItemDecoration(recyclerView.getContext(), LinearLayoutManager.VERTICAL);
     }
 
     private void setRefreshing(boolean refreshing) {
@@ -76,9 +74,6 @@ public class PostsActivity extends AppCompatActivity implements IPostsActivityCo
         List<PostItem> postItems = postsViewModel.getPostItems();
         if (postItems != null) {
             postsAdapter.setData(postsViewModel.getPostItems());
-            if (recyclerView.getLayoutManager() == null) {
-                recyclerView.setLayoutManager(linearLayoutManager);
-            }
             if (recyclerView.getItemDecorationCount() == 0) {
                 recyclerView.addItemDecoration(dividerItemDecoration);
             }

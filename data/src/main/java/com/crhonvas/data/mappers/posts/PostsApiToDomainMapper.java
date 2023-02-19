@@ -1,7 +1,7 @@
 package com.crhonvas.data.mappers.posts;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.crhonvas.data.remote.model.posts.PostsApiResponse;
 import com.crhonvas.data.utils.ListUtils;

@@ -1,15 +1,16 @@
 package com.chronvas.btest.activity.posts;
 
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -55,7 +56,8 @@ public class PostsAdapter extends RecyclerView.Adapter<BaseItemsViewHolder> {
 
     @Override
     public int getItemCount() {
-        return posts.size();
+        if (posts == null) return 0;
+        else return posts.size();
     }
 
     private static class ContentItemViewHolder extends BaseItemsViewHolder {

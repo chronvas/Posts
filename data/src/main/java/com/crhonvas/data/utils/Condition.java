@@ -1,6 +1,6 @@
 package com.crhonvas.data.utils;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Testing if item t returns true on predicate

@@ -1,7 +1,7 @@
 package com.chronvas.btest.activity.post;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.chronvas.btest.activity.post.viewmodel.PostViewModel;
 import com.chronvas.btest.activity.posts.viewmodel.PostItem;

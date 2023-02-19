@@ -1,8 +1,7 @@
 package com.crhonvas.data.remote.model.comments;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
-import com.crhonvas.data.remote.model.user.GeoApiResponse;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;

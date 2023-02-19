@@ -1,6 +1,6 @@
 package com.crhonvas.data.mappers.comments;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.crhonvas.data.remote.model.comments.CommentApiResponse;
 import com.crhonvas.data.utils.ListUtils;
