@@ -4,7 +4,7 @@ import com.chronvas.btest.activity.posts.viewmodel.PostItem;
 import com.chronvas.btest.activity.posts.viewmodel.PostsVieModel;
 import com.chronvas.btest.injection.ActivityScoped;
 import com.chronvas.btest.utils.scheduler.ISchedulerProvider;
-import com.crhonvas.data.utils.ListUtils;
+import com.chronvas.btest.utils.ListUtils;
 import com.crhonvas.domain.model.posts.Post;
 import com.crhonvas.domain.usecase.IUseCase;
 
