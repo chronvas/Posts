@@ -12,7 +12,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Single;
 
-public class PostsUseCase implements IUseCase<Single<List<Post>>, Void> {
+public class PostsUseCase implements IUseCase<Single<List<Post>>, Integer> {
 
     @NonNull
     private final IPostRepository postRepository;
@@ -23,7 +23,7 @@ public class PostsUseCase implements IUseCase<Single<List<Post>>, Void> {
     }
 
     @Override
-    public Single<List<Post>> execute(@Nullable Void v) {
+    public Single<List<Post>> execute(@Nullable Integer v) {
         return postRepository.getPosts();
     }
 }
