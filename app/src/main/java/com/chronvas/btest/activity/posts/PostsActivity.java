@@ -21,8 +21,9 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.AndroidInjection;
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class PostsActivity extends AppCompatActivity implements IPostsActivityContract.View, PostItemClickListener {
 
     @Inject
@@ -39,7 +40,6 @@ public class PostsActivity extends AppCompatActivity implements IPostsActivityCo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         ButterKnife.bind(this);

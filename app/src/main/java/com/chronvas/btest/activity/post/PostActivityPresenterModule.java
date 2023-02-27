@@ -15,10 +15,13 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.android.ActivityKey;
 import dagger.android.AndroidInjector;
+import dagger.hilt.InstallIn;
+import dagger.hilt.android.components.ViewModelComponent;
 import dagger.multibindings.IntoMap;
 import io.reactivex.Single;
 
-@Module(subcomponents = PostActivityPresenterComponent.class)
+@Module
+@InstallIn(ViewModelComponent.class)
 public abstract class PostActivityPresenterModule {
 
     @Binds

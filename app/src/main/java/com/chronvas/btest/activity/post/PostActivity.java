@@ -1,10 +1,12 @@
 package com.chronvas.btest.activity.post;
 
 import android.os.Bundle;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.chronvas.btest.R;
 import com.chronvas.btest.activity.post.viewmodel.PostViewModel;
@@ -16,12 +18,13 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.AndroidInjection;
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class PostActivity extends AppCompatActivity implements IPostActivityContract.View {
 
-    @Inject
-    IPostActivityContract.Presenter presenter;
+
+    private IPostActivityContract.Presenter presenter;
 
     @BindView(R.id.swipeRefresh)
     SwipeRefreshLayout swipeRefreshLayout;
@@ -37,8 +40,8 @@ public class PostActivity extends AppCompatActivity implements IPostActivityCont
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
+        presenter = new ViewModelProvider(this).get(PostActivityPresenter.class);
         setContentView(R.layout.activity_post);
         ButterKnife.bind(this);
         setRefreshing(true);

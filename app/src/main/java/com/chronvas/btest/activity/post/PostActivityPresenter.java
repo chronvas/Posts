@@ -2,6 +2,7 @@ package com.chronvas.btest.activity.post;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModel;
 
 import com.chronvas.btest.activity.post.viewmodel.PostViewModel;
 import com.chronvas.btest.activity.posts.viewmodel.PostItem;
@@ -18,8 +19,8 @@ import javax.inject.Inject;
 import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 
-@ActivityScoped
-public class PostActivityPresenter implements IPostActivityContract.Presenter {
+
+public class PostActivityPresenter extends ViewModel implements IPostActivityContract.Presenter  {
 
     private final IUseCase<Single<List<Comment>>, Integer> commentsForPostIdUseCase;
     private final ISchedulerProvider schedulerProvider;
@@ -38,6 +39,14 @@ public class PostActivityPresenter implements IPostActivityContract.Presenter {
         this.commentsForPostIdUseCase = commentsForPostIdUseCase;
         this.schedulerProvider = schedulerProvider;
         this.disposables = new CompositeDisposable();
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (!disposables.isDisposed()) {
+            disposables.dispose();
+        }
     }
 
     private void dispose() {
